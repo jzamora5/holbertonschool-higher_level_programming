@@ -1,3 +1,3 @@
-HIGH LEVEL PROGRAMMING
+# HIGH LEVEL PROGRAMMING
 
-Repository for studying Python and other high level languages.
+**Repository for studying Python and other high level languages.**
