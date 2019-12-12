@@ -3,11 +3,11 @@ from sys import argv
 if __name__ == "__main__":
     argc = len(argv) - 1
     if argc == 0:
-        print("{} arguments.".format(argc))
+        print("{:d} arguments.".format(argc))
     elif argc == 1:
-        print("{} argument:".format(argc))
+        print("{:d} argument:".format(argc))
     else:
-        print("{} arguments:".format(argc))
+        print("{:d} arguments:".format(argc))
     for i in range(0, len(argv)):
         if i > 0:
-            print("{}: {}".format(i, argv[i]))
+            print("{:d}: {:s}".format(i, argv[i]))
