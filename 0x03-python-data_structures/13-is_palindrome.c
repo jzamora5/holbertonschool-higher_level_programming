@@ -9,7 +9,7 @@
 
 int recurPalindrome(listint_t **left, listint_t *right)
 {
-	int ret = 0;
+	int ret;
 
 	if (right == NULL)
 		return (1);
@@ -19,10 +19,10 @@ int recurPalindrome(listint_t **left, listint_t *right)
 		return (0);
 
 	if (right->n == (*left)->n)
+	{
 		ret = 1;
-
-	*left = (*left)->next;
-
+		*left = (*left)->next;
+	}
 	return (ret);
 }
 /**
