@@ -18,11 +18,10 @@ int recurPalindrome(listint_t **left, listint_t *right)
 	if (ret == 0)
 		return (0);
 
-	if (right->n == (*left)->n)
-	{
-		ret = 1;
-		*left = (*left)->next;
-	}
+	ret = (right->n == (*left)->n);
+
+	*left = (*left)->next;
+
 	return (ret);
 }
 /**
@@ -33,5 +32,7 @@ int recurPalindrome(listint_t **left, listint_t *right)
  */
 int is_palindrome(listint_t **head)
 {
+	if (!head)
+		return (0);
 	return (recurPalindrome(head, *head));
 }
