@@ -1,6 +1,30 @@
-#include <stdlib.h>
 #include "lists.h"
+/**
+ * recurPalindrome - checks if singly linked list is palindrome
+ * @left: pointer to head of singly linked list
+ * @right: head of singly linked list
+ *
+ * Return: 0 if it is not a palindrome, 1 if it is a palindrome
+ */
 
+int recurPalindrome(listint_t **left, listint_t *right)
+{
+	int ret = 0;
+
+	if (right == NULL)
+		return (1);
+
+	ret = recurPalindrome(left, right->next);
+	if (ret == 0)
+		return (0);
+
+	if (right->n == (*left)->n)
+		ret = 1;
+
+	*left = (*left)->next;
+
+	return (ret);
+}
 /**
  * is_palindrome - checks if singly linked list is palindrome
  * @head: pointer to head of singly linked list
@@ -9,26 +33,5 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *tmp = *head;
-	int *p, count = 0, i;
-
-	if (!(*head))
-		return (1);
-
-	while (tmp)
-		tmp = tmp->next, count++;
-	p = malloc(sizeof(int) * count);
-
-	for (i = 0, tmp = *head; tmp; i++)
-		p[i] = tmp->n, tmp = tmp->next;
-
-	tmp = *head, i--;
-	while (tmp)
-	{
-		if (tmp->n != p[i])
-			return (free(p), 0);
-		tmp = tmp->next;
-		i--;
-	}
-	return (free(p), 1);
+	return (recurPalindrome(head, *head));
 }
