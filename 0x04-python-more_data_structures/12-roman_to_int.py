@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    from functools import reduce
     if not roman_string or not isinstance(roman_string, str):
         return (0)
-    Roman = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
-    dlist = [Roman[i] for i in roman_string]
-    dec = reduce(lambda x, y: x + y, dlist)
+    Rm = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
+    rm = list(roman_string)
+    dlist = [Rm[i[0]] if Rm[i[0]] >= Rm[i[1]] else (-1*Rm[i[0]])
+             for i in zip(rm, rm[1:])]
+    dec = sum(dlist)
+    dec += Rm[rm[-1]]
     return (dec)
