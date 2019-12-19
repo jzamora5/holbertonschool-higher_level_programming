@@ -85,9 +85,6 @@ What you should learn from this project:
 * Create two C functions that print some basic info about Python lists and Python bytes objects.
 
 
-
-Python lists:
-
 ---
 
 ## Author
