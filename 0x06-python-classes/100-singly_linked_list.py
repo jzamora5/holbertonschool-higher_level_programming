@@ -26,6 +26,7 @@ class Node:
 
     @next_node.setter
     def next_node(self, value):
+        """ next_node Setter """
         if isinstance(value, Node) or value is None:
             self.__next_node = value
         else:
