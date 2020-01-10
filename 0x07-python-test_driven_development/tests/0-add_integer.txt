@@ -1,0 +1,117 @@
+====================================
+ Doctest for add_integer function
+====================================
+
+Numbers
+=======
+
+``add_integer(a, b)`` returns the addition of its two arguments in
+equivalence to the '+' operator. The function arguments must be
+integers or floats for it to work, otherwise an error is raised
+
+::
+
+>>> func = __import__("0-add_integer").add_integer
+>>> func(2, 3)
+5
+
+It also works with floating point values.
+
+::
+
+>>> func(2.0, 3)
+5
+
+>>> func(2, 3.0)
+5
+
+Negative numbers are accepted
+
+Test for both numbers integer
+
+>>> func(-3, 2)
+-1
+
+>>> func (3, -2)
+1
+
+Non-Numbers
+===========
+
+If any of the arguments of the function are not integer or float
+it will raise a TypeError
+
+
+::
+
+Test with first argument not int or float and second argument int
+
+>>> func('a', 3)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "./0-add_integer.py", line 7, in add_integer
+    raise TypeError("a must be an integer")
+TypeError: a must be an integer
+
+
+Test with first argument int and second argument not int or float
+
+
+>>> func(3, 'b')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "./0-add_integer.py", line 9, in add_integer
+    raise TypeError("b must be an integer")
+TypeError: b must be an integer
+
+
+
+Test with first argument not int or float and second argument float
+
+
+>>> func('a', 3.0)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "./0-add_integer.py", line 9, in add_integer
+    raise TypeError("a must be an integer")
+TypeError: a must be an integer
+
+
+Test with first argument float and second argument not int or float
+
+
+>>> func(3.0, 'b')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "./0-add_integer.py", line 9, in add_integer
+    raise TypeError("b must be an integer")
+TypeError: b must be an integer
+
+
+
+Missing Second Argument
+========================
+If the second argument 'b' is not provided, this variable will
+take the value 98 by default
+
+Test with 1 argument int
+
+>>> func(2)
+100
+
+Test with 1 argument float
+
+>>> func(2.0)
+100
+
+No arguments given
+=======================
+
+If no arguments are given, an error will appear asking for at least
+1 argument
+
+
+>>> func()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: add_integer() missing 1 required positional argument: 'a'
