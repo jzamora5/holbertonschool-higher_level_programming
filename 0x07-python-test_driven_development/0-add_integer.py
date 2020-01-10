@@ -4,10 +4,12 @@ Project for studying doctests in python
 
 
 """
+
+
 def add_integer(a, b=98):
     """Function that adds 2 integers
-    If not integers or floats, raise errors
-    """
+    Args are a and b, and they can be int or float
+    If Args are invalid type, a TypeError is raised"""
 
     if not isinstance(a, int) and not isinstance(a, float):
         raise TypeError("a must be an integer")
