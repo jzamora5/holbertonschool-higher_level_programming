@@ -11,7 +11,7 @@ integers or floats for it to work, otherwise an error is raised
 Import function
 =================
 
->>> add_integer = __import__("0-add_integer").add_integer
+    >>> add_integer = __import__("0-add_integer").add_integer
 
 Add Two Integers
 ==================
