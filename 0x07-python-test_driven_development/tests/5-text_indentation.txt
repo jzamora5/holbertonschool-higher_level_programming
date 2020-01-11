@@ -1,0 +1,247 @@
+=======================================
+ Doctest for text_indentation function
+=======================================
+
+
+``def text_indentation(text):`` prints a text with 2 new lines after each of
+these characters: . ? and :
+
+Import function
+=================
+
+    >>> text_indentation = __import__("5-text_indentation").text_indentation
+
+Functional Tests
+================
+
+
+Dot in several positions
+
+    >>> text_indentation("Hello.World")
+    Hello.
+    <BLANKLINE>
+    World
+
+    >>> text_indentation(".Hello World")
+    .
+    <BLANKLINE>
+    Hello World
+
+
+    >>> text_indentation("Hello World.")
+    Hello World.
+    <BLANKLINE>
+
+? in several positions
+
+    >>> text_indentation("Hello?World")
+    Hello?
+    <BLANKLINE>
+    World
+
+    >>> text_indentation("?Hello World")
+    ?
+    <BLANKLINE>
+    Hello World
+
+
+    >>> text_indentation("Hello World?")
+    Hello World?
+    <BLANKLINE>
+
+: in several positions
+
+
+    >>> text_indentation("Hello:World")
+    Hello:
+    <BLANKLINE>
+    World
+
+    >>> text_indentation(":Hello World")
+    :
+    <BLANKLINE>
+    Hello World
+
+
+    >>> text_indentation("Hello World:")
+    Hello World:
+    <BLANKLINE>
+
+Combinations
+
+
+    >>> text_indentation("Hello..World")
+    Hello.
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    World
+
+    >>> text_indentation(":?Hello World.")
+    :
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    Hello World.
+    <BLANKLINE>
+
+    >>> text_indentation("?Hello:.:World?   ")
+    ?
+    <BLANKLINE>
+    Hello:
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    World?
+    <BLANKLINE>
+
+
+   >>> text_indentation("?This is a.:random?text written for this doctest?")
+   ?
+   <BLANKLINE>
+   This is a.
+   <BLANKLINE>
+   :
+   <BLANKLINE>
+   random?
+   <BLANKLINE>
+   text written for this doctest?
+   <BLANKLINE>
+
+Only the characters
+
+    >>> text_indentation(".")
+    .
+    <BLANKLINE>
+
+    >>> text_indentation("?")
+    ?
+    <BLANKLINE>
+
+    >>> text_indentation(":")
+    :
+    <BLANKLINE>
+
+    >>> text_indentation(".?:")
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+
+
+    >>> text_indentation(" .?: ")
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+
+Empty string
+
+    >>> text_indentation("")
+    >>>
+
+No characters to modify
+
+   >>> text_indentation("H")
+   H
+
+   >>> text_indentation("Hello World")
+   Hello World
+
+
+   >>> text_indentation("    Hello World    ")
+   Hello World
+
+
+   >>> text_indentation("             ")
+   >>>
+
+Special Character New Line
+
+   >>> text_indentation("   \n       ")
+   <BLANKLINE>
+
+   >>> text_indentation("   .\n?")
+   .
+   <BLANKLINE>
+   <BLANKLINE>
+   ?
+   <BLANKLINE>
+
+   >>> text_indentation("\n.\n?\n:")
+   <BLANKLINE>
+   .
+   <BLANKLINE>
+   <BLANKLINE>
+   ?
+   <BLANKLINE>
+   <BLANKLINE>
+   :
+   <BLANKLINE>
+
+
+Invalid Text
+=============
+
+Integer
+
+    >>> text_indentation(5)
+    Traceback (most recent call last):
+              :
+    TypeError: text must be a string
+
+Float
+
+    >>> text_indentation(5.0)
+    Traceback (most recent call last):
+              :
+    TypeError: text must be a string
+
+List
+    >>> text_indentation(["Hello"])
+    Traceback (most recent call last):
+              :
+    TypeError: text must be a string
+
+Tuple
+
+    >>> text_indentation(("Hello", "H"))
+    Traceback (most recent call last):
+              :
+    TypeError: text must be a string
+
+Set
+
+    >>> text_indentation({"Hello", "H"})
+    Traceback (most recent call last):
+              :
+    TypeError: text must be a string
+
+Dictionary
+
+
+    >>> text_indentation({"Hello": "H"})
+    Traceback (most recent call last):
+              :
+    TypeError: text must be a string
+
+None
+
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+              :
+    TypeError: text must be a string
+
+
+No Argument
+============
+    >>> text_indentation()
+    Traceback (most recent call last):
+              ...
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
