@@ -1,0 +1,173 @@
+====================================
+ Doctest for print_square function
+====================================
+
+
+``print_square(size)`` prints a name in the format
+My name is <first name> <last name>
+
+Import function
+=================
+
+    >>> print_square = __import__("4-print_square").print_square
+
+Functional Tests
+================
+
+
+Integers
+
+    >>> print_square(1)
+    #
+
+    >>> print_square(4)
+    ####
+    ####
+    ####
+    ####
+
+    >>> print_square(10)
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+
+   >>> print_square(0)
+   >>>
+
+
+Invalid size Argument
+======================
+
+
+Float Value
+
+   >>> print_square(1.0)
+   Traceback (most recent call last):
+             ...
+   TypeError: size must be an integer
+
+
+   >>> print_square(4.5)
+   Traceback (most recent call last):
+             ...
+   TypeError: size must be an integer
+
+
+   >>> print_square(10.2)
+   Traceback (most recent call last):
+             ...
+   TypeError: size must be an integer
+
+
+
+Negative Float Value
+
+
+   >>> print_square(-4.5)
+   Traceback (most recent call last):
+             ...
+   TypeError: size must be an integer
+
+
+   >>> print_square(-10.2)
+   Traceback (most recent call last):
+             ...
+   TypeError: size must be an integer
+
+
+String
+
+
+   >>> print_square('3')
+   Traceback (most recent call last):
+             ...
+   TypeError: size must be an integer
+
+
+List
+
+   >>> print_square([1])
+   Traceback (most recent call last):
+             ...
+   TypeError: size must be an integer
+
+Tuple
+
+   >>> print_square((2, 4))
+   Traceback (most recent call last):
+             ...
+   TypeError: size must be an integer
+
+
+Set
+
+   >>> print_square({2})
+   Traceback (most recent call last):
+             ...
+   TypeError: size must be an integer
+
+
+Dictionary
+
+   >>> print_square({"H": 2})
+   Traceback (most recent call last):
+             ...
+   TypeError: size must be an integer
+
+
+None
+
+   >>> print_square(None)
+   Traceback (most recent call last):
+             ...
+   TypeError: size must be an integer
+
+
+Not a number
+
+
+   >>> print_square(float('nan'))
+   Traceback (most recent call last):
+             ...
+   TypeError: size must be an integer
+
+
+Infinite
+
+   >>> print_square(float('inf'))
+   Traceback (most recent call last):
+             ...
+   TypeError: size must be an integer
+
+
+Size Value less than 0
+=======================
+
+With -1
+
+   >>> print_square(-1)
+   Traceback (most recent call last):
+             ...
+   ValueError: size must be >= 0
+
+With -5
+
+   >>> print_square(-5)
+   Traceback (most recent call last):
+             ...
+   ValueError: size must be >= 0
+
+No argument
+============
+
+    >>> print_square()
+    Traceback (most recent call last):
+              ...
+    TypeError: print_square() missing 1 required positional argument: 'size'
