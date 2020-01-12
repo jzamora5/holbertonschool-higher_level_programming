@@ -41,14 +41,12 @@ def matrix_mul(m_a, m_b):
 
     # All Elements of matrices must be ints or floats
 
-    if not all([all(isinstance(j, (int, float)) for j in i) for i in m_a]) or \
-       not all(len(i) for i in m_a):
+    if not all([all(isinstance(j, (int, float)) for j in i) for i in m_a]):
 
         msg = "m_a should contain only integers or floats"
         raise TypeError(msg)
 
-    if not all([all(isinstance(m, (int, float)) for m in k) for k in m_b]) or \
-       not all(len(j) for j in m_b):
+    if not all([all(isinstance(m, (int, float)) for m in k) for k in m_b]):
 
         msg = "m_b should contain only integers or floats"
         raise TypeError(msg)
