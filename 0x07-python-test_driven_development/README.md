@@ -22,7 +22,7 @@ What you should learn from this project:
 
 
 ### [2. Say my name](./3-say_my_name.py)
-* Write a function that prints My name is <first name> <last name>
+* Write a function that prints My name is first name last name
 
 
 ### [3. Print square](./4-print_square.py)
@@ -38,7 +38,7 @@ What you should learn from this project:
 
 
 ### [6. Matrix multiplication](./100-matrix_mul.py)
-* Write a function that multiplies 2 matrices:
+* Write a function that multiplies 2 matrices
 
 
 ### [7. Lazy matrix multiplication](./101-lazy_matrix_mul.py)
@@ -46,7 +46,7 @@ What you should learn from this project:
 
 
 ### [8. CPython #3: Python Strings](./102-python.c)
-* 
+* Create a function that prints Python strings 
 
 
 ---
