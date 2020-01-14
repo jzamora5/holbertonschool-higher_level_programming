@@ -80,48 +80,48 @@ Set
     >>> matrix_mul({1, 2}, [[1]])
     Traceback (most recent call last):
               ...
-    TypeError: unsupported operand type(s) for *: 'set' and 'int'
+    TypeError: Object arrays are not currently supported
 
     >>> matrix_mul([[1]], {1, 2})
     Traceback (most recent call last):
               ...
-    TypeError: unsupported operand type(s) for *: 'int' and 'set'
+    TypeError: Object arrays are not currently supported
 
 Dictionary
 
     >>> matrix_mul({1: 2}, [[1]])
     Traceback (most recent call last):
               ...
-    TypeError: unsupported operand type(s) for *: 'dict' and 'int'
+    TypeError: Object arrays are not currently supported
 
     >>> matrix_mul([[1]], {1: 2})
     Traceback (most recent call last):
               ...
-    TypeError: unsupported operand type(s) for *: 'int' and 'dict'
+    TypeError: Object arrays are not currently supported
 
 String
 
     >>> matrix_mul("2, 3", [[1]])
     Traceback (most recent call last):
               ...
-    TypeError: ufunc 'multiply' did not contain a loop with signature matching types dtype('<U4') dtype('<U4') dtype('<U4')
+    ValueError: Scalar operands are not allowed, use '*' instead
 
     >>> matrix_mul([[1]], "2, 3")
     Traceback (most recent call last):
               ...
-    TypeError: ufunc 'multiply' did not contain a loop with signature matching types dtype('<U4') dtype('<U4') dtype('<U4')
+    ValueError: Scalar operands are not allowed, use '*' instead
 
 None
 
     >>> matrix_mul(None, [[1]])
     Traceback (most recent call last):
               ...
-    TypeError: unsupported operand type(s) for *: 'NoneType' and 'int'
+    TypeError: Object arrays are not currently supported
 
     >>> matrix_mul([[1]], None)
     Traceback (most recent call last):
               ...
-    TypeError: unsupported operand type(s) for *: 'int' and 'NoneType'
+    TypeError: Object arrays are not currently supported
 
 
 Arguments not a list of lists
@@ -145,48 +145,48 @@ Set
     >>> matrix_mul([{1, 2}], [[1]])
     Traceback (most recent call last):
               ...
-    TypeError: unsupported operand type(s) for *: 'set' and 'int'
+    TypeError: Object arrays are not currently supported
 
     >>> matrix_mul([[1]], [{1, 2}])
     Traceback (most recent call last):
               ...
-    TypeError: unsupported operand type(s) for *: 'int' and 'set'
+    TypeError: Object arrays are not currently supported
 
 Dictionary
 
     >>> matrix_mul([{1: 2}], [[1]])
     Traceback (most recent call last):
               ...
-    TypeError: unsupported operand type(s) for *: 'dict' and 'int'
+    TypeError: Object arrays are not currently supported
 
     >>> matrix_mul([[1]], [{1: 2}])
     Traceback (most recent call last):
               ...
-    TypeError: unsupported operand type(s) for *: 'int' and 'dict'
+    TypeError: Object arrays are not currently supported
 
 String
 
     >>> matrix_mul(["2, 3"], [[1]])
     Traceback (most recent call last):
               ...
-    ValueError: data type must provide an itemsize
+    TypeError: invalid data type for einsum
 
     >>> matrix_mul([[1]], ["2, 3"])
     Traceback (most recent call last):
               ...
-    ValueError: data type must provide an itemsize
+    TypeError: invalid data type for einsum
 
 None
 
     >>> matrix_mul([None], [[1]])
     Traceback (most recent call last):
               ...
-    TypeError: unsupported operand type(s) for *: 'NoneType' and 'int'
+    TypeError: Object arrays are not currently supported
 
     >>> matrix_mul([[1]], [None])
     Traceback (most recent call last):
               ...
-    TypeError: unsupported operand type(s) for *: 'int' and 'NoneType'
+    TypeError: Object arrays are not currently supported
 
 
 Empty List or Empty List of Lists
@@ -239,24 +239,24 @@ String
     >>> matrix_mul([[1, 2], [3, '4']], [[1, 2], [3, 4]])
     Traceback (most recent call last):
               ...
-    ValueError: data type must provide an itemsize
+    TypeError: invalid data type for einsum
 
     >>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, '4']])
     Traceback (most recent call last):
               ...
-    ValueError: data type must provide an itemsize
+    TypeError: invalid data type for einsum
 
 Set
 
     >>> matrix_mul([[1, 2], [3, {4, 2}]], [[1, 2], [3, 4]])
     Traceback (most recent call last):
               ...
-    TypeError: unsupported operand type(s) for *: 'set' and 'int'
+    TypeError: Object arrays are not currently supported
 
     >>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, {4, 2}]])
     Traceback (most recent call last):
               ...
-    TypeError: unsupported operand type(s) for *: 'int' and 'set'
+    TypeError: Object arrays are not currently supported
 
 Dictionary
 
@@ -264,24 +264,24 @@ Dictionary
     >>> matrix_mul([[1, 2], [3, {4: 2}]], [[1, 2], [3, 4]])
     Traceback (most recent call last):
               ...
-    TypeError: unsupported operand type(s) for *: 'dict' and 'int'
+    TypeError: Object arrays are not currently supported
 
     >>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, {4: 2}]])
     Traceback (most recent call last):
               ...
-    TypeError: unsupported operand type(s) for *: 'int' and 'dict'
+    TypeError: Object arrays are not currently supported
 
 None
 
     >>> matrix_mul([[1, 2], [3, None]], [[1, 2], [3, 4]])
     Traceback (most recent call last):
               ...
-    TypeError: unsupported operand type(s) for *: 'NoneType' and 'int'
+    TypeError: Object arrays are not currently supported
 
     >>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, None]])
     Traceback (most recent call last):
               ...
-    TypeError: unsupported operand type(s) for *: 'int' and 'NoneType'
+    TypeError: Object arrays are not currently supported
 
 
 Not square matrices
