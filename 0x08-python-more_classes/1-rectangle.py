@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 class Rectangle:
-    """Constructor for Class Rectangle """
+    """ Class that creates a Rectangle Object """
     def __init__(self, width=0, height=0):
+        """ Constructor """
         self.height = height
         self.width = width
 
