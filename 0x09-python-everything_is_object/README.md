@@ -137,22 +137,31 @@ Answer with Yes or No.
 
 
 ### [27. Richard Sim's special #3](./27-answer.txt)
-* >>> id(a)
+* id(a)
+
 139926795932424
->>> a
+
+a
+
 [1, 2, 3, 4]
->>> a = a + [5]
->>> id(a)
+
+a = a + [5]
+
+id(a)
 
 
 
 ### [28. Richard Sim's special #4](./28-answer.txt)
-* >>> a
+* a
+
 [1, 2, 3]
->>> id (a)
+
+id (a)
+
 139926795932424
->>> a += [4]
->>> id(a)
+a += [4]
+
+id(a)
 
 
 ### [30. #pythonic](./100-magic_string.py)
@@ -163,9 +172,12 @@ Answer with Yes or No.
 * Write a class LockedClass with no class or object attribute, that prevents the user from dynamically creating new instance attributes, except if the new instance attribute is called first_name.
 
 ### [32. int 1/3](./103-line1.txt)
-* julien@ubuntu:/python3$ cat int.py 
+* julien@ubuntu:/python3$ cat int.py
+ 
 a = 1
+
 b = 1
+
 julien@ubuntu:/python3$ 
 
 How many int objects are created by the execution of the first line of the script?
@@ -175,12 +187,18 @@ How many int objects are created by the execution of the second line of the scri
 
 
 ### [33. int 2/3](./104-line1.txt)
-* julien@ubuntu:/python3$ cat int.py 
+* julien@ubuntu:/python3$ cat int.py
+ 
 a = 1024
+
 b = 1024
+
 del a
+
 del b
+
 c = 1024
+
 julien@ubuntu:/python3$ 
 
 How many int objects are created by the execution of the first line of the script?
@@ -194,10 +212,14 @@ After the execution of line 4, is the int object pointed by b deleted? Answer wi
 How many int objects are created by the execution of the last line of the script
 
 ### [34. int 3/3](./105-line1.txt)
-* julien@twix:/tmp/so$ cat int.py 
+* julien@twix:/tmp/so$ cat int.py
+ 
 print("I")
+
 print("Love")
+
 print("Python")
+
 julien@ubuntu:/tmp/so$ 
 
 Before the execution of line 2 (print("Love")), how many int objects have been created and are still in memory?
@@ -207,12 +229,18 @@ Why?
 
 
 ### [35. Clear strings](./106-line1.txt)
-* guillaume@ubuntu:/python3$ cat string.py 
+* guillaume@ubuntu:/python3$ cat string.py
+ 
 a = "HBTN"
+
 b = "HBTN"
+
 del a
+
 del b
+
 c = "HBTN"
+
 guillaume@ubuntu:/python3$ 
 
 How many string objects are created by the execution of the first line of the script?
