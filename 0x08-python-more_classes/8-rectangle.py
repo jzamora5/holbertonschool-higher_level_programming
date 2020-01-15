@@ -59,7 +59,7 @@ class Rectangle:
         if self.width == 0 or self.height == 0:
             return (recstr)
         else:
-            sym = self.print_symbol
+            sym = str(self.print_symbol)
             for j in range(self.height):
                 recstr += "{}".format(sym * self.__width)
                 if j != (self.height - 1):
