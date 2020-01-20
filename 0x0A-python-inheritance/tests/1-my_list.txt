@@ -1,0 +1,356 @@
+====================================
+ Doctest for MyList class
+====================================
+
+
+``MyList(list)`` is a class that inherits from list with
+Public instance method: def print_sorted(self): that prints the list,
+but sorted (ascending sort)
+
+You can assume that all the elements of the list will be of type int
+
+
+Import function
+=================
+
+    >>> MyList = __import__('1-my_list').MyList
+
+Create instance
+==================
+
+With argument positive int
+
+    >>> my_list = MyList(6)
+    Traceback (most recent call last):
+    ...
+    TypeError: 'int' object is not iterable
+
+With argument negative int
+
+    >>> my_list = MyList(-6)
+    Traceback (most recent call last):
+    ...
+    TypeError: 'int' object is not iterable
+
+More than 1 argument
+
+    >>> my_list = MyList(6, 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: list() takes at most 1 argument (2 given)
+
+
+Without argument
+
+    >>> my_list = MyList()
+
+
+Check Type and instance
+==========================
+
+Type
+
+    >>> type(my_list) == MyList
+    True
+
+    >>> type(my_list) == list
+    False
+
+
+Instance
+
+    >>> isinstance(my_list, MyList)
+    True
+
+    >>> isinstance(my_list, list)
+    True
+
+Subclass
+
+    >>> issubclass(MyList, list)
+    True
+
+Method
+
+   >>> type(my_list.print_sorted)
+   <class 'method'>
+
+
+Test Public Method Sorted
+===========================
+
+Giving 1 argument
+
+     >>> my_list.print_sorted(5)
+     Traceback (most recent call last):
+     ...
+     TypeError: print_sorted() takes 1 positional argument but 2 were given
+
+
+Giving 2 arguments
+
+     >>> my_list.print_sorted(5, 2)
+     Traceback (most recent call last):
+     ...
+     TypeError: print_sorted() takes 1 positional argument but 3 were given
+
+
+Pos Numbers
+
+     >>> my_list.append(2)
+     >>> my_list += [4]
+     >>> my_list.append(1)
+     >>> my_list.append(5)
+     >>> my_list.print_sorted()
+     [1, 2, 4, 5]
+
+Check Is copy
+
+     >>> my_list
+     [2, 4, 1, 5]
+
+Check Print
+
+     >>> print(my_list)
+     [2, 4, 1, 5]
+
+     >>> my_list.clear()
+
+Neg Numbers
+
+     >>> my_list.append(-1)
+     >>> my_list.append(-4)
+     >>> my_list += [-8]
+     >>> my_list.append(-5)
+     >>> my_list.print_sorted()
+     [-8, -5, -4, -1]
+
+     >>> my_list.clear()
+
+Mixed
+
+     >>> my_list.append(-1)
+     >>> my_list.append(4)
+     >>> my_list.append(-8)
+     >>> my_list += [5]
+     >>> my_list.print_sorted()
+     [-8, -1, 4, 5]
+
+
+     >>> my_list.clear()
+
+
+Repeated Numbers Positive
+
+
+    >>> my_list.append(2)
+    >>> my_list.append(2)
+    >>> my_list.append(5)
+    >>> my_list.append(1)
+    >>> my_list.print_sorted()
+    [1, 2, 2, 5]
+
+    >>> my_list.clear()
+
+
+Repeated Numbers Negative
+
+
+    >>> my_list.append(-2)
+    >>> my_list.append(-2)
+    >>> my_list.append(5)
+    >>> my_list.append(1)
+    >>> my_list.print_sorted()
+    [-2, -2, 1, 5]
+
+
+    >>> my_list.clear()
+
+
+1 Number Pos
+
+    >>> my_list.append(2)
+    >>> my_list.print_sorted()
+    [2]
+
+
+    >>> my_list.clear()
+
+1 Number Neg
+
+    >>> my_list.append(-2)
+    >>> my_list.print_sorted()
+    [-2]
+
+
+    >>> my_list.clear()
+
+Test list methods
+===============
+
+
+APPEND
+
+Pos int
+
+    >>> my_list.append(4)
+
+Neg int
+
+    >>> my_list.append(-4)
+
+More than 1 arg
+
+    >>> my_list.append(4, 1)
+    Traceback (most recent call last):
+    ...
+    TypeError: append() takes exactly one argument (2 given)
+
+
+CLEAR
+
+No argument
+
+    >>> my_list.clear()
+
+Argument given
+
+    >>> my_list.clear(4)
+    Traceback (most recent call last):
+    ...
+    TypeError: clear() takes no arguments (1 given)
+
+COPY
+
+With Clear list
+
+   >>> my_list.copy()
+   []
+
+With List
+
+   >>> my_list.append(4)
+   >>> my_list.append(-4)
+   >>> my_list.copy()
+   [4, -4]
+
+With argument
+
+   >>> my_list.copy(4)
+   Traceback (most recent call last):
+   ...
+   TypeError: copy() takes no arguments (1 given)
+
+
+COUNT
+
+No argument
+
+   >>> my_list.count()
+   Traceback (most recent call last):
+   ...
+   TypeError: count() takes exactly one argument (0 given)
+
+
+   >>> my_list.clear()
+   >>> my_list.append(4)
+   >>> my_list.append(-3)
+   >>> my_list.append(-3)
+
+Argument
+
+   >>> my_list.count(4)
+   1
+
+   >>> my_list.count(-3)
+   2
+
+
+EXTEND
+
+Single Argument
+
+   >>> my_list.extend(3)
+   Traceback (most recent call last):
+   ...
+   TypeError: 'int' object is not iterable
+
+List as argument
+
+   >>> my_list.extend([3, -3])
+
+INDEX
+
+Exists
+   >>> my_list.index(-3)
+   1
+
+Does not exist
+
+   >>> my_list.index(1)
+   Traceback (most recent call last):
+   ...
+   ValueError: 1 is not in list
+
+INSERT
+
+Pos index
+    >>> my_list.insert(0, 5)
+
+Neg index
+    >>> my_list.insert(-1, 5)
+
+1 Argument
+    >>> my_list.insert(5)
+    Traceback (most recent call last):
+    ...
+    TypeError: insert() takes exactly 2 arguments (1 given)
+
+POP
+
+No argument
+
+    >>> my_list.pop()
+    -3
+
+Index Given
+    >>> my_list.pop(0)
+    5
+
+REMOVE
+
+Found
+    >>> my_list.remove(3)
+
+Not Found
+
+    >>> my_list.remove(8)
+    Traceback (most recent call last):
+    ...
+    ValueError: list.remove(x): x not in list
+
+REVERSE
+
+No argument
+
+    >>> my_list.reverse()
+
+With argument
+
+    >>> my_list.reverse(5)
+    Traceback (most recent call last):
+    ...
+    TypeError: reverse() takes no arguments (1 given)
+
+SORT
+
+No argument
+
+    >>> my_list.sort()
+
+With argument
+
+    >>> my_list.sort(5)
+    Traceback (most recent call last):
+    ...
+    TypeError: must use keyword argument for key function
