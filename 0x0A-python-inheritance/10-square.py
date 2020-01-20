@@ -14,7 +14,6 @@ class Square(Rectangle):
         self.__size = size
         super().__init__(size, size)
 
-
     def area(self):
         """ Area method through Super call """
         return super().area()
