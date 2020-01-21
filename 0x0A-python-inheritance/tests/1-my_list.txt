@@ -95,6 +95,13 @@ Giving 2 arguments
      TypeError: print_sorted() takes 1 positional argument but 3 were given
 
 
+Empty List
+
+     >>> my_list.print_sorted()
+     []
+
+     >>> my_list.clear()
+
 Pos Numbers
 
      >>> my_list.append(2)
