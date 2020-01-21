@@ -2,7 +2,7 @@
 
 
 def number_of_lines(filename=""):
-    """ function that reads a text file (UTF8) and prints it to stdout """
+    """ function that returns the number of lines of a text file """
 
     with open("my_file_0.txt") as myfile:
         lines = myfile.readlines()
