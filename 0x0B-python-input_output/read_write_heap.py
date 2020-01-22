@@ -11,7 +11,8 @@ import sys
 
 def exitmsg():
     """ Function for Print Information """
-    print("Usage: read_write_heap.py pid search_string replace_string")
+    sys.stdout.write("Usage: read_write_heap.py")
+    sys.stdout.write(" pid search_string replace_string\n")
     sys.exit(1)
 
 # Run conditions
