@@ -10,6 +10,7 @@ import sys
 
 
 def exitmsg():
+    """ Function for Print Information """
     print("Usage: read_write_heap.py pid search_string replace_string")
     sys.exit(1)
 
