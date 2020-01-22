@@ -28,15 +28,17 @@ try:
         count += 1
 
         try:
-            if stlist[-2] in sts:
-                sts[stlist[-2]] += 1
+            size += int(stlist[-1])
         except:
             pass
 
         try:
-            size += int(stlist[-1])
+            if stlist[-2] in sts:
+                sts[stlist[-2]] += 1
         except:
             pass
+    printsts(sts, size)
+
 
 except KeyboardInterrupt:
     printsts(sts, size)
