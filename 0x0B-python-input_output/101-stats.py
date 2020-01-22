@@ -10,7 +10,7 @@ def printsts(dic, size):
     print("File size: {:d}".format(size))
     for i in sorted(dic.keys()):
         if dic[i] != 0:
-            print("{:s}: {:d}".format(i, dic[i]))
+            print("{}: {:d}".format(i, dic[i]))
 
 
 sts = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0,
@@ -25,12 +25,18 @@ try:
             printsts(sts, size)
 
         stlist = line.split()
-
-        if stlist[-2] in sts:
-            sts[stlist[-2]] += 1
-
-        size += int(stlist[-1])
         count += 1
+
+        try:
+            if stlist[-2] in sts:
+                sts[stlist[-2]] += 1
+        except:
+            pass
+
+        try:
+            size += int(stlist[-1])
+        except:
+            pass
 
 except KeyboardInterrupt:
     printsts(sts, size)
