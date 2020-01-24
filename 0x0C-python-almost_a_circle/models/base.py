@@ -66,7 +66,6 @@ class Base:
                 inslist = []
                 for i in dicst:
                     inslist.append(cls.create(**i))
-                print(inslist)
                 return inslist
         except IOError:
             return []
