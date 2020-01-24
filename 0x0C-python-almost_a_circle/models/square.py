@@ -34,7 +34,7 @@ class Square(Rectangle):
         for ar in args:
             if ct == 0:
                 super().update(ar)
-            else:
+            elif ct < len(arlist):
                 setattr(self, arlist[ct], ar)
             ct += 1
 

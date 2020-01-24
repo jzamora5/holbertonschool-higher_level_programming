@@ -106,7 +106,7 @@ class Rectangle(Base):
         for ar in args:
             if ct == 0:
                 super().__init__(ar)
-            else:
+            elif ct < len(arlist):
                 setattr(self, arlist[ct], ar)
             ct += 1
 
