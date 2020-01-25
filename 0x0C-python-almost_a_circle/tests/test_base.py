@@ -53,6 +53,7 @@ class Test_id(unittest.TestCase):
         with self.assertRaises(AttributeError):
             b1.__nb_objects
 
+
 class Test_instance(unittest.TestCase):
     """ Clas for unittest of  instance """
 
@@ -321,6 +322,7 @@ class Test_save_to_file(unittest.TestCase):
                 self.assertEqual(r, '[]')
 
     def test_None(self):
+        """ Try to save None """
         name = "Rectangle.json"
         Rectangle.save_to_file(None)
         self.assertTrue(path.isfile(name))
@@ -391,6 +393,7 @@ class Test_save_to_file(unittest.TestCase):
             r = myfile.read()
             self.assertEqual(dlist.replace("'", "\""), r)
 
+
 class Test_load_from_file(unittest.TestCase):
     """ Class for unittest of load_from_file method """
 
@@ -416,8 +419,8 @@ class Test_load_from_file(unittest.TestCase):
 
     def test_empty_file_list(self):
         """ Test when file is empty list """
-        rl1 = Rectangle.load_from_file()
         Rectangle.save_to_file(None)
+        rl1 = Rectangle.load_from_file()
         self.assertEqual(rl1, [])
 
     def test_rectangle_ins(self):
@@ -459,6 +462,172 @@ class Test_load_from_file(unittest.TestCase):
         list_squares_input = [s1, s2]
         Square.save_to_file(list_squares_input)
         sl1 = Square.load_from_file()
+        st1 = str(sl1[0])
+        st2 = str(sl1[1])
+        self.assertEqual(str(s1), st1)
+        self.assertEqual(str(s2), st2)
+
+
+class Test_save_to_file_csv(unittest.TestCase):
+    """ Class for unittest of save_to_file_csv method """
+    def setUp(self):
+        """ Set up for all methods """
+        Base._Base__nb_objects = 0
+
+    def tearDown(self):
+        """ Tear down for all methods """
+        try:
+            remove("Rectangle.csv")
+        except:
+            pass
+        try:
+            remove("Square.csv")
+        except:
+            pass
+
+    def test_Nofile_csv(self):
+        """ Error when file does not exist """
+        name = "Rectangle.csv"
+        with self.assertRaises(FileNotFoundError):
+            with open(name, "r") as myfile:
+                r = myfile.read()
+                self.assertEqual(r, '[]')
+
+    def test_None_csv(self):
+        """ Try to save None """
+        name = "Rectangle.csv"
+        Rectangle.save_to_file_csv(None)
+        self.assertTrue(path.isfile(name))
+
+    def test_checkEmptyList_csv(self):
+        """ Checks Contents """
+        name = "Rectangle.csv"
+        Rectangle.save_to_file_csv([])
+        with open(name, "r") as myfile:
+            r = myfile.read()
+            self.assertEqual(r, '')
+
+    def test_checkNoneRec_csv(self):
+        """ Checks Contents """
+        name = "Rectangle.csv"
+        Rectangle.save_to_file_csv(None)
+        with open(name, "r") as myfile:
+            r = myfile.read()
+            self.assertEqual(r, '')
+
+    def test_rectangle_csv(self):
+        """ Check if file is created with correct name """
+        name = "Rectangle.csv"
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        Rectangle.save_to_file_csv([r1, r2])
+        self.assertTrue(path.isfile(name))
+
+    def test_rectangle_content(self):
+        """ Check if file is created with correct content """
+        name = "Rectangle.csv"
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        Rectangle.save_to_file_csv([r1, r2])
+        nl = Rectangle.load_from_file_csv()
+        self.assertEqual(str(r1), str(nl[0]))
+        self.assertEqual(str(r2), str(nl[1]))
+
+    def test_checkNoneSq_csv(self):
+        """ Checks Contents """
+        name = "Square.csv"
+        Square.save_to_file_csv(None)
+        with open(name, "r") as myfile:
+            r = myfile.read()
+            self.assertEqual(r, '')
+
+    def test_square_csv(self):
+        """ Check if file is created with correct name """
+        name = "Square.csv"
+        s1 = Square(10, 7, 2)
+        s2 = Square(2)
+        Square.save_to_file_csv([s1, s2])
+        self.assertTrue(path.isfile(name))
+
+    def test_square_content(self):
+        """ Check if file is created with correct content """
+        name = "Square.csv"
+        s1 = Square(10, 7, 2)
+        s2 = Square(2)
+        Square.save_to_file_csv([s1, s2])
+        nl = Square.load_from_file_csv()
+        self.assertEqual(str(s1), str(nl[0]))
+        self.assertEqual(str(s2), str(nl[1]))
+
+
+class Test_load_from_file_csv(unittest.TestCase):
+    """ Class for unittest of load_from_file_csv method """
+
+    def setUp(self):
+        """ Set up for all methods """
+        Base._Base__nb_objects = 0
+
+    def tearDown(self):
+        """ Tear down for all methods """
+        try:
+            remove("Rectangle.csv")
+        except:
+            pass
+        try:
+            remove("Square.csv")
+        except:
+            pass
+
+    def test_no_file_csv(self):
+        """ Test when file does not exist """
+        rl1 = Rectangle.load_from_file_csv()
+        self.assertEqual(rl1, [])
+
+    def test_empty_file_list_csv(self):
+        """ Test when file is empty list """
+        Rectangle.save_to_file_csv(None)
+        rl1 = Rectangle.load_from_file_csv()
+        self.assertEqual(rl1, [])
+
+    def test_rectangle_ins_csv(self):
+        """ Test for Rectangle instance """
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        list_rectangles_input = [r1, r2]
+        Rectangle.save_to_file_csv(list_rectangles_input)
+        rl1 = Rectangle.load_from_file_csv()
+        self.assertTrue(isinstance(rl1[0], Rectangle))
+        self.assertTrue(isinstance(rl1[1], Rectangle))
+
+    def test_rectangle_data_csv(self):
+        """ Test for Rectangle instance data """
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        list_rectangles_input = [r1, r2]
+        Rectangle.save_to_file_csv(list_rectangles_input)
+        rl1 = Rectangle.load_from_file_csv()
+        st1 = str(rl1[0])
+        st2 = str(rl1[1])
+        self.assertEqual(str(r1), st1)
+        self.assertEqual(str(r2), st2)
+
+    def test_square_ins(self):
+        """ Test for Square instance """
+        s1 = Square(5)
+        s2 = Square(7, 9, 1)
+        list_squares_input = [s1, s2]
+        Square.save_to_file_csv(list_squares_input)
+        sl1 = Square.load_from_file_csv()
+        self.assertTrue(isinstance(sl1[0], Square))
+        self.assertTrue(isinstance(sl1[1], Square))
+
+    def test_square_ins_data(self):
+        """ Test for Square instance data """
+        s1 = Square(5)
+        s2 = Square(7, 9, 1)
+        list_squares_input = [s1, s2]
+        Square.save_to_file_csv(list_squares_input)
+        sl1 = Square.load_from_file_csv()
         st1 = str(sl1[0])
         st2 = str(sl1[1])
         self.assertEqual(str(s1), st1)
