@@ -611,7 +611,7 @@ class Test_load_from_file_csv(unittest.TestCase):
         self.assertEqual(str(r1), st1)
         self.assertEqual(str(r2), st2)
 
-    def test_square_ins(self):
+    def test_square_ins_csv(self):
         """ Test for Square instance """
         s1 = Square(5)
         s2 = Square(7, 9, 1)
@@ -621,7 +621,7 @@ class Test_load_from_file_csv(unittest.TestCase):
         self.assertTrue(isinstance(sl1[0], Square))
         self.assertTrue(isinstance(sl1[1], Square))
 
-    def test_square_ins_data(self):
+    def test_square_ins_data_csv(self):
         """ Test for Square instance data """
         s1 = Square(5)
         s2 = Square(7, 9, 1)
