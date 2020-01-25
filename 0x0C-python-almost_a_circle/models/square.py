@@ -31,14 +31,15 @@ class Square(Rectangle):
         """ Functions to update arguments of each attr """
         arlist = ["id", "size", "x", "y"]
         ct = 0
-        for ar in args:
-            if ct == 0:
-                super().update(ar)
-            elif ct < len(arlist):
-                setattr(self, arlist[ct], ar)
-            ct += 1
+        if args and len(args) != 0:
+            for ar in args:
+                if ct == 0:
+                    super().update(ar)
+                elif ct < len(arlist):
+                    setattr(self, arlist[ct], ar)
+                ct += 1
 
-        if not args or len(args) == 0:
+        else:
             for key, value in kwargs.items():
                 if key == "id":
                     super().update(id=value)

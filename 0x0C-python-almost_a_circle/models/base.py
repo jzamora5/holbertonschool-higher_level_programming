@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import json
+import csv
 
 class Base:
     """ Class to define base model Object """
@@ -13,7 +14,7 @@ class Base:
             self.id = id
         else:
             Base.__nb_objects += 1
-            self.id = self.__nb_objects
+            self.id = Base.__nb_objects
 
     @staticmethod
     def to_json_string(list_dictionaries):
@@ -66,6 +67,49 @@ class Base:
                 inslist = []
                 for i in dicst:
                     inslist.append(cls.create(**i))
+                return inslist
+        except IOError:
+            return []
+
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ Serializes to CSV and saves to file """
+        filename = cls.__name__ + ".csv"
+        csvlist = []
+        if list_objs:
+            for i in list_objs:
+                dic = i.to_dictionary()
+                if cls.__name__ == "Rectangle":
+                    csvlist.append([dic["id"], dic["width"],
+                               dic["height"], dic["x"], dic["y"]])
+
+                elif cls.__name__ == "Square":
+                    csvlist.append([dic["id"], dic["size"], dic["x"], dic["y"]])
+
+        with open(filename, "w", encoding="utf-8") as myfile:
+            w = csv.writer(myfile)
+            w.writerows(csvlist)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ Deserializes from CSV and loads from file """
+        filename = cls.__name__ + ".csv"
+
+        try:
+            with open(filename, encoding="utf-8") as myfile:
+                r = csv.reader(myfile)
+                if cls.__name__ == "Rectangle":
+                    attr = ["id", "width", "height", "x", "y"]
+                elif cls.__name__ == "Square":
+                    attr = ["id", "size", "x", "y"]
+                inslist = []
+                for row in r:
+                    ct, dic = 0, {}
+                    for i in row:
+                        dic[attr[ct]] = int(i)
+                        ct += 1
+                    inslist.append(cls.create(**dic))
                 return inslist
         except IOError:
             return []

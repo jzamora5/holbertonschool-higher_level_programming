@@ -22,7 +22,7 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """ width setter """
-        if not isinstance(value, int):
+        if type(value) is not int:
             msg = "width must be an integer"
             raise TypeError(msg)
         if value <= 0:
@@ -38,7 +38,7 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         """ height setter """
-        if not isinstance(value, int):
+        if type(value) is not int:
             msg = "height must be an integer"
             raise TypeError(msg)
         if value <= 0:
@@ -54,7 +54,7 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """ x setter """
-        if not isinstance(value, int):
+        if type(value) is not int:
             msg = "x must be an integer"
             raise TypeError(msg)
         if value < 0:
@@ -70,7 +70,7 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         """ y setter """
-        if not isinstance(value, int):
+        if type(value) is not int:
             msg = "y must be an integer"
             raise TypeError(msg)
         if value < 0:
@@ -103,14 +103,15 @@ class Rectangle(Base):
         """ Function to update arguments of each attr """
         arlist = ["id", "width", "height", 'x', 'y']
         ct = 0
-        for ar in args:
-            if ct == 0:
-                super().__init__(ar)
-            elif ct < len(arlist):
-                setattr(self, arlist[ct], ar)
-            ct += 1
+        if args and len(args) != 0:
+            for ar in args:
+                if ct == 0:
+                    super().__init__(ar)
+                elif ct < len(arlist):
+                    setattr(self, arlist[ct], ar)
+                ct += 1
 
-        if not args or len(args) == 0:
+        else:
             for key, value in kwargs.items():
                 if key == "id":
                     super().__init__(value)
