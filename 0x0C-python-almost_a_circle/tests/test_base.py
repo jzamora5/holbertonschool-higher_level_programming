@@ -549,7 +549,7 @@ class Test_save_to_file_csv(unittest.TestCase):
         Square.save_to_file_csv([s1, s2])
         self.assertTrue(path.isfile(name))
 
-    def test_square_content(self):
+    def test_square_content_csv(self):
         """ Check if file is created with correct content """
         name = "Square.csv"
         s1 = Square(10, 7, 2)
