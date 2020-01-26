@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 
+""" Module of Base Class for Geometry Rectangle and Square """
+
 import json
 import csv
+
 
 class Base:
     """ Class to define base model Object """
@@ -71,7 +74,6 @@ class Base:
         except IOError:
             return []
 
-
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """ Serializes to CSV and saves to file """
@@ -82,10 +84,11 @@ class Base:
                 dic = i.to_dictionary()
                 if cls.__name__ == "Rectangle":
                     csvlist.append([dic["id"], dic["width"],
-                               dic["height"], dic["x"], dic["y"]])
+                                    dic["height"], dic["x"], dic["y"]])
 
                 elif cls.__name__ == "Square":
-                    csvlist.append([dic["id"], dic["size"], dic["x"], dic["y"]])
+                    csvlist.append([dic["id"], dic["size"],
+                                    dic["x"], dic["y"]])
 
         with open(filename, "w", encoding="utf-8") as myfile:
             w = csv.writer(myfile)
