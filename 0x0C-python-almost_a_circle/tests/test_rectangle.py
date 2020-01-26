@@ -44,7 +44,7 @@ class Test_args(unittest.TestCase):
         self.assertEqual(r1.id, 1)
 
     def test_id(self):
-        """ Test for no id """
+        """ Test for id """
         r1 = Rectangle(1, 1, 1, 1, 85)
         self.assertEqual(r1.id, 85)
 
@@ -615,6 +615,17 @@ class Test_update(unittest.TestCase):
         """ Full change kwargs """
         r1 = Rectangle(2, 3, 4, 5, 6)
         r1.update(id=15, width=16, height=17, x=18, y=19)
+        self.assertEqual(r1.width, 16)
+        self.assertEqual(r1.height, 17)
+        self.assertEqual(r1.x, 18)
+        self.assertEqual(r1.y, 19)
+        self.assertEqual(r1.id, 15)
+
+    def test_Kfullchange2(self):
+        """ Full change kwargs """
+        r1 = Rectangle(2, 3, 4, 5, 6)
+        d1 = {"id": 15, "width": 16, "height": 17, "x": 18, "y": 19}
+        r1.update(**d1)
         self.assertEqual(r1.width, 16)
         self.assertEqual(r1.height, 17)
         self.assertEqual(r1.x, 18)
