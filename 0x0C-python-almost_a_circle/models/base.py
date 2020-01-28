@@ -118,6 +118,7 @@ class Base:
         except IOError:
             return []
 
+    @staticmethod
     def draw(list_rectangles, list_squares):
         """ Draws Rectangles and Squares in GUI """
 
@@ -190,6 +191,7 @@ class Base:
         # gr.speed(0)
 
         # Disable Animation
+        # turtle.setup(2000, 2000)
         turtle.tracer(False)
 
         colors = ["blue", "green", "red", "purple",
@@ -210,8 +212,14 @@ class Base:
             drawfig(x, y, width, height, xoffset, yoffset, colors[cl], dd, gr)
             cl = cl + 1 if cl < 5 else 0
 
+        yoffset = 0
+        ct = 0
         for s in list_squares:
-            xoffset += (x + width) * dd + space
+            if ct == 0:
+                xoffset = (dd + space) - 950
+                ct = 1
+            else:
+                xoffset += (x + width) * dd + space
             width, height = s.size, s.size
             x, y = s.x, s.y
             drawfig(x, y, width, height, xoffset, yoffset, colors[cl], dd, gr)
