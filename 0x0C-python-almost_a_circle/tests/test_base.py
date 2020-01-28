@@ -393,6 +393,15 @@ class Test_save_to_file(unittest.TestCase):
             r = myfile.read()
             self.assertEqual(dlist.replace("'", "\""), r)
 
+    def test_square_empty(self):
+        """ Check if file is created with correct content empty """
+        name = "Square.json"
+        Square.save_to_file([])
+        dlist = "[]"
+        with open(name, "r") as myfile:
+            r = myfile.read()
+            self.assertEqual(dlist.replace("'", "\""), r)
+
 
 class Test_load_from_file(unittest.TestCase):
     """ Class for unittest of load_from_file method """
