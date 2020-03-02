@@ -1,4 +1,4 @@
--- Displays the average temperature (Fahrenheit) by city ordered by temperature (descending)
+-- Displays top 3 cities temperature during July and August
 -- Query to perform operation
 SELECT city, AVG(value) AS avg_temp
        FROM temperatures
