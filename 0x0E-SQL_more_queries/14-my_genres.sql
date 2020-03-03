@@ -1,4 +1,4 @@
--- Lists all shows contained in hbtn_0d_tvshows without a genre linked.
+-- Lists all genres of the show Dexter.
 -- Query to perform operation
 SELECT gr.name name FROM tv_genres AS gr
        JOIN tv_show_genres AS shgr
