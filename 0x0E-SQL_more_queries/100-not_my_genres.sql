@@ -3,7 +3,7 @@
 SELECT gr.name FROM tv_genres AS gr
 LEFT JOIN
 (
-       SELECT gr.id, gr.name FROM tv_genres AS gr
+       SELECT gr.id FROM tv_genres AS gr
        JOIN tv_show_genres AS shgr
        	    ON gr.id=shgr.genre_id
        JOIN tv_shows AS sh
@@ -12,5 +12,5 @@ LEFT JOIN
        ORDER BY gr.name ASC
 ) AS subdx
 ON subdx.id = gr.id
-WHERE subdx.name IS NULL
+WHERE subdx.id IS NULL
 ORDER BY gr.name ASC;
