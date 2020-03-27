@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Filter states by user input """
+""" Prevent SQL Injection """
 
 from sys import argv
 import MySQLdb
