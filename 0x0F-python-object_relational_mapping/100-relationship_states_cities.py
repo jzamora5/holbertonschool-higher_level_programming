@@ -21,11 +21,9 @@ if __name__ == "__main__":
 
     newState = State(name=nstate)
 
+    newCity = City(name=ncity, state=newState)
+
     session.add(newState)
-
-    session.commit()
-
-    newCity = City(name=ncity, state_id=newState.id)
 
     session.add(newCity)
 
