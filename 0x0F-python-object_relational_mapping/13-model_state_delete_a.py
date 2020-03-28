@@ -15,10 +15,12 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    query = session.query(State).filter(State.name.like("%a"))
+    query = session.query(State).filter(State.name.like("%a%"))
     records = query.all()
 
     for record in records:
         session.delete(record)
 
     session.commit()
+
+    session.close()
