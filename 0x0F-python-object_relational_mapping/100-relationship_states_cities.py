@@ -23,6 +23,8 @@ if __name__ == "__main__":
 
     session.add(newState)
 
+    session.commit()
+
     newCity = City(name=ncity, state_id=newState.id)
 
     session.add(newCity)
