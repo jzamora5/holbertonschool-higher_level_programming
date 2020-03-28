@@ -22,5 +22,3 @@ if __name__ == "__main__":
         session.delete(record)
 
     session.commit()
-
-    session.close()
