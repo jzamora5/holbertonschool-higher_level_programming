@@ -23,8 +23,6 @@ if __name__ == "__main__":
 
     newCity = City(name=ncity, state=newState)
 
-    session.add(newState)
-
     session.add(newCity)
 
     session.commit()
