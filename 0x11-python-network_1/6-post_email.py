@@ -6,6 +6,6 @@ if __name__ == "__main__":
     import sys
     url = sys.argv[1]
     data = {"email": sys.argv[2]}
-    r = requests.put(url, data)
+    r = requests.post(url, data)
     body = r.text
     print(body)
