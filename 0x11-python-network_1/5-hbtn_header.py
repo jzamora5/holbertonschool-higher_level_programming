@@ -6,5 +6,5 @@ if __name__ == "__main__":
     import sys
     url = sys.argv[1]
     r = requests.get(url)
-    Xreq = r.headers['X-Request-Id']
+    Xreq = r.headers.get('X-Request-Id')
     print(Xreq)
