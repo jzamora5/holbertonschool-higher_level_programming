@@ -15,6 +15,6 @@ if __name__ == "__main__":
         if not js:
             print("No result")
         else:
-            print("[{}] {}".format(js['id'], js['name']))
+            print("[{}] {}".format(js.get('id'), js.get('name')))
     except ValueError:
         print("Not a valid JSON")
