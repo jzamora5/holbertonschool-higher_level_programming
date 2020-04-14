@@ -11,7 +11,7 @@ if __name__ == "__main__":
     try:
         js = r.json()
         for j in js[:10]:
-            author = None
+            author, name = None, None
             # date = None
             sha = j.get('sha')
             commit = j.get('commit')
