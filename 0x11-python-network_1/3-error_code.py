@@ -12,4 +12,4 @@ if __name__ == "__main__":
             print(body)
 
     except HTTPError as e:
-        print('Error code: ', e.code)
+        print('Error code: {}'.format(e.code))
