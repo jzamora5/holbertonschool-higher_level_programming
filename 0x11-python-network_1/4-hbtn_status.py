@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Whats my status with request """
+""" Whats my status with requests """
 
 if __name__ == "__main__":
     import requests
