@@ -17,8 +17,7 @@ if __name__ == "__main__":
     br_token_64 = base64.b64encode(br_token.encode('utf-8'))
     headers = {
         "Authorization": "Basic " + br_token_64.decode('utf-8'),
-        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
-        "Content-Length": "29"}
+        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"}
 
     req_body = {'grant_type': 'client_credentials'}
     response = requests.post(url_oauth2, headers=headers, data=req_body)
