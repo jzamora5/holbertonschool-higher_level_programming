@@ -29,7 +29,7 @@ if __name__ == "__main__":
 
     # Search Tweets
 
-    auth = {'authorization': "Bearer " + acs_token}
+    auth = {'Authorization': "Bearer " + acs_token}
 
     payload = {
         'q': st_search,
