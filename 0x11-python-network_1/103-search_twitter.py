@@ -13,7 +13,7 @@ if __name__ == "__main__":
 
     # Authentication to obtain bearer token
 
-    br_token = "{:s}.{:s}".format(cons_key, cons_secret)
+    br_token = "{:s}:{:s}".format(cons_key, cons_secret)
     br_token_64 = base64.b64encode(br_token.encode('utf-8'))
     headers = {
         "Authorization": "Basic " + br_token_64.decode('utf-8'),
@@ -30,7 +30,6 @@ if __name__ == "__main__":
     # Search Tweets
 
     auth = {'Authorization': "Bearer " + acs_token}
-
     payload = {
         'q': st_search,
         'result_type': 'recent',
@@ -44,3 +43,4 @@ if __name__ == "__main__":
     for s in json_search_res.get("statuses"):
         st = "[{}] {} by {}".format(
             s.get('id'), s.get('text'), s.get('user').get('name'))
+        print(st)
