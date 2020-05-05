@@ -10,7 +10,7 @@ function secondMax (array) {
 
   const max = Math.max(...array);
 
-  const arr = nums.filter(arr => arr < max);
+  const arr = array.filter(arr => arr < max);
 
   return (Math.max(...arr));
 }
