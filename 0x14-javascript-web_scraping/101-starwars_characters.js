@@ -6,16 +6,16 @@ const urlMovie = `${urlFilm}${argv[2]}/`;
 const request = require('request');
 
 request(urlMovie, function (error, response, body) {
-  if (!error) {
+  if (error == null) {
     const fbody = JSON.parse(body);
     const characters = fbody.characters;
-    const limit = characters.length;
 
-    if (characters.length > 0) {
+    if (characters && characters.length > 0) {
+      const limit = characters.length;
       CharRequest(0, characters[0], characters, limit);
     }
   } else {
-    console.error('error:', error);
+    console.log(error);
   }
 });
 
