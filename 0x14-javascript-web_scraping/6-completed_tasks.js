@@ -9,10 +9,10 @@ request(url, function (error, response, body) {
     const rbody = JSON.parse(body);
     const dict = {};
     for (const i of rbody) {
-      if (dict[i.userId] === undefined) {
-        dict[i.userId] = 0;
-      }
       if (i.completed === true) {
+        if (dict[i.userId] === undefined) {
+          dict[i.userId] = 0;
+        }
         dict[i.userId] += 1;
       }
     }
