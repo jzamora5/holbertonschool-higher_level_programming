@@ -4,7 +4,7 @@ const url = argv[2];
 const request = require('request');
 request(url, function (error, response, body) {
   if (error) {
-    console.error('error:', error);
+    console.log(error);
   } else {
     const rbody = JSON.parse(body);
     const dict = {};
