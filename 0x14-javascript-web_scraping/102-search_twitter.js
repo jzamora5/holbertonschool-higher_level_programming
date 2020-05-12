@@ -10,7 +10,7 @@ const stSearch = process.argv[4];
 const urlOauth2 = 'https://api.twitter.com/oauth2/token';
 const urlSearch = 'https://api.twitter.com/1.1/search/tweets.json';
 
-const brToken = consKey + consSecret;
+const brToken = `${consKey}:${consSecret}`;
 
 const brToken64 = base64.encode(utf8.encode(brToken));
 
